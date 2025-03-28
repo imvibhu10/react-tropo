@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tropo-react
+spec:
+  selector:
+    matchLabels:
+      app: tropo-react
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tropo-react
+    spec:
+      containers:
+        - image: 119316742178.dkr.ecr.us-east-1.amazonaws.com/tropo-react:nginx-v2
+          imagePullPolicy: Always
+          name: tropo-react
+          ports:
+          - containerPort: 80
